@@ -7,9 +7,10 @@ Alt-AI is an open-source project aimed at providing a range of AI services, incl
 + [Getting Started](#getting-started)
   - [Prerequisites](#prerequisties)
   - [Installation](#installation)
-+[Usage](#usage)
-+[Contributing](#contributing)
-+[License](#licesnse)
+    
+-[Usage](#usage)
+-[Contributing](#contributing)
+-[License](#licesnse)
 
 ## Getting Started
 
@@ -41,7 +42,7 @@ npm install
 ```
 5. **Navigate to the server folder**
 ```sh
-cd .../server
+cd ../server
 ```
 6. **Install server dependencies**
 ```sh
