@@ -4,13 +4,13 @@ Alt-AI is an open-source project aimed at providing a range of AI services, incl
 
 ## Table of Contents
 
-+ [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisties)
-  - [Installation](#installation)
+* [Getting Started](#getting-started)
+  * [Prerequisites](#prerequisties)
+  * [Installation](#installation)
     
--[Usage](#usage)
--[Contributing](#contributing)
--[License](#licesnse)
+* [Usage](#usage)
+* [Contributing](#contributing)
+* [License](#licesnse)
 
 ## Getting Started
 
