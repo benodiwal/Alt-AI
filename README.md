@@ -3,7 +3,11 @@
 Alt-AI is an open-source project aimed at providing a range of AI services, including an AI Bot, Image Generation, and AI-powered Image Restoration.
 
 ## Some Screenshots of Alt-AI
-![Sign-up Page](screenshots/1.png)
+
+1. ![Sign-up Page](screenshots/1.png)
+2. ![Imgae-Generation](screenshots/2.png)
+3. ![Restore-Dashboard](screenshots/3.png)
+4. ![Restore-Dashboard](screenshots/4.png)
 
 ## Table of Contents
 
