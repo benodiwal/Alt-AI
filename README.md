@@ -4,12 +4,12 @@ Alt-AI is an open-source project aimed at providing a range of AI services, incl
 
 ## Table of Contents
 
-- [Getting Started](#getting-started)
++ [Getting Started](#getting-started)
   - [Prerequisites](#prerequisties)
   - [Installation](#installation)
--[Usage](#usage)
--[Contributing](#contributing)
--[License](#licesnse)
++[Usage](#usage)
++[Contributing](#contributing)
++[License](#licesnse)
 
 ## Getting Started
 
@@ -26,33 +26,38 @@ Before you begin, ensure you have met the following requirements:
 Follow these steps to set up and run Alt-AI
 
 1. **Clone the repository**
-'''sh
+```sh
 git clone https://github.com/codygeek01/Alt-AI.git
+```
 
 2. **Navigate to the client folder**
-'''sh
+```sh
 cd Alt-AI/client
+```
 
 3. **Install client dependencies**
-'''sh
+```sh
 npm install
-
-4. **Navigate to the server folder**
-'''sh
+```
+5. **Navigate to the server folder**
+```sh
 cd .../server
-
-5. **Install server dependencies**
+```
+6. **Install server dependencies**
+```sh
 npm install
+```
 
-6. **Start the client and the server**
+7. **Start the client and the server**
 - In the client folder
-'''sh
+```sh
 npm run dev
+```
 
 - In the server folder
-'''sh
+```sh
 npm start
-
+```
 ## Usage
 
 **Open the browser and go to http://localhost:5173** to access the Alt-AI application
@@ -65,18 +70,26 @@ We welcome contribution from the community to make Alt-AI even better! To contri
 
 1. Fork this repository to your GitHub account.
 2. Clone your forked repository to your local machine:
-'''sh
+```sh
 git clone https://github.com/codygeek01/Alt-AI.git
+```
+
 3. Create a new branch for your feature or bug fix:
-'''sh
+```sh
 git checkout -b feature-name
+```
+
 4. Make your changes and ensure that your code follows the project's coding guidelines.
 5. Commit your changes with a descriptive commit message:
-'''sh
+```sh
 git commit -am "Add new feature"
+```
+
 6. Push your changes to your forked repository:
-'''sh
+```sh
 git push origin feature-name
+```
+
 7. Create a pull request:
 - Go to the [original repository](https://github.com/codygeek01/Alt-AI.git).
 - Click on "Pull Requests" and then "New Pull Request".
