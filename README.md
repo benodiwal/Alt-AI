@@ -6,8 +6,9 @@ Alt-AI is an open-source project aimed at providing a range of AI services, incl
 
 1. ![Sign-up Page](screenshots/1.png)
 2. ![Imgae-Generation](screenshots/2.png)
-3. ![Restore-Dashboard](screenshots/3.png)
+3. ![Imgae-Generation](screenshots/3.png)
 4. ![Restore-Dashboard](screenshots/4.png)
+5. ![Restore-Dashboard](screenshots/5.png)
 
 ## Table of Contents
 
