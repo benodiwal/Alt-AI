@@ -5,8 +5,37 @@ import Ball from "../components/canvas/Ball"
 import { FiMoreHorizontal }  from "react-icons/fi"
 import { BsSendFill } from "react-icons/bs"
 import Response from "../components/Response"
+import { useState } from "react";
 
 const Assistant = () => {
+
+  const [prompt, setPrompt] = useState<string>("");
+
+  const handleChat = async () => {
+
+    if (prompt) {
+
+    try {
+      const response = await fetch("http://localhost:3001/chat", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ prompt }),      
+      });
+
+      setPrompt("");
+
+      const response_msg = await response.json();
+      console.log(response_msg);
+      
+    } catch (error) {
+      console.error('Error in messages exchange', error);
+    }
+
+  }
+
+  }
 
   return (
     <div className="relative overflow-x-hidden h-screen bg-gradient-to-b from-[#161E26] to-[#0D1117] w-full z-0 flex gap-1 overflow-y-hidden">
@@ -54,7 +83,9 @@ const Assistant = () => {
               <div className="w-[60px] h-[60px]">
               <Ball icon={"/Brain.png"}/>
               </div>
-              <p className="text-white font-bold text-[30px]">Elysia</p>
+              <p className="text-white font-bold text-[30px]">
+                Elysia
+              </p>
             </div>
   
         </div>
@@ -75,16 +106,25 @@ const Assistant = () => {
 
         
         {/* Current Sessions */}
-        <div className="flex-1 relative w-full right-0 left-0 lg:mx-10 md:mx-8 mx-4 my-4 h-screen">
+        <div 
+        className="flex-1 relative w-full right-0 left-0 lg:mx-10 md:mx-8 mx-4 my-4 py-4 h-screen overflow-y-auto no-scrollbar">
           
           {/* Input Box */}
           <div className="w-full md:h-[60px] h-[40px] bg-gray-800 sticky top-5 flex rounded-lg left-0 right-0 px-5 py-3 items-center justify-between gap-3">
-            <input type="text" placeholder="So what's on your mind now?" className="flex-1 outline-none outline-0 ring-0 bg-gray-800/0 text-white"/>
-            <BsSendFill className="text-white w-[20px] h-[20px] hover:opacity-80"/>
+            <input
+            value={prompt}
+            onChange={(e) => setPrompt(e.target.value)}
+            type="text" 
+            placeholder="So what's on your mind now?" 
+            className="flex-1 outline-none outline-0 ring-0 bg-gray-800/0 text-white"/>
+            <BsSendFill 
+            onClick={handleChat}
+            className="text-white w-[20px] h-[20px] hover:opacity-80"
+            />
           </div>
 
           {/* Chat */}
-          <div className="w-full lg:px-10 md:px-6 px-2 overflow-y-auto max-h-screen pb-40 pt-10" style={{ scrollbarWidth: "none" }}>
+          <div className="w-full lg:px-10 md:px-6 px-2 overflow-hidden max-h-screen pb-40 pt-10">
 
             <div className="w-full border-b-[1px] border-t-[1px] border-gray-500 mt-1">
               <div className="flex items-center justify-between px-2 my-2">

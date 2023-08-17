@@ -1,28 +1,42 @@
-import mongoose from "mongoose";
 import User from "../models/User.js";
 import axios from "axios";
 
 export const auth = async (req, res) => {
-    const { token } = req.body;
+    const { accessToken } = req.body;
+    console.log(accessToken);
 
-    await axios.get("", {
+    try {
+        const response = await axios.get('https://people.googleapis.com/v1/people/me', {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+            params: {
+              personFields: 'names,emailAddresses,photos', // Specify the fields you need
+            },
+          });
 
-    }).then(async (res) => {
-        const { name, id, picture } = res.data;
-        if (!id) return;
+       console.log(response);
 
-        const user  = User.findOne({
-            id: id
-        })
+        if (!id) {
+            res.status(400).json({ error: "Invalid id" });
+            return;
+        }
+
+        let user = await User.findOne({ id });
 
         if (!user) {
             const newUser = new User({
-                name,
                 id,
-                picture
-            })
+                name,
+                picture,
+            });
 
-            const savedUser = await newUser.save();
+            user = await newUser.save();
         }
-    })
-}
+
+        res.status(200).json(user);
+    } catch (error) {
+        console.error("An error occurred:", error);
+        res.status(500).json({ error: "An error occurred" });
+    }
+};

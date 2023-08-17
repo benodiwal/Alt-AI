@@ -37,7 +37,7 @@ const Response: React.FC<ResponseProps> = ({ text }) => {
                 clearTimeout(timer);
             }
         }
-    }, [text, typedText])
+    }, [text, typedText]);
 
   return (
     <div>

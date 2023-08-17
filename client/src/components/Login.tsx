@@ -29,6 +29,37 @@ const Login = () => {
   const ref = useRef(null);
   const navigate = useNavigate();
 
+  const handleAccessToken = async (accessToken: string) => {
+
+    try {
+      const response = await fetch("http://localhost:3001/auth/google/callback",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ accessToken })
+      });
+      
+      return response;
+
+    } catch (error) {
+      console.error("Error fetching details form the server", error);
+    }
+
+  }
+
+  const signIn = useGoogleLogin({
+    onSuccess: async (response) => {
+      console.log("Google login success:", response);
+      const data = await handleAccessToken(response.access_token);
+      console.log(data);
+    },
+    onError: (error) => {
+      console.error("Google login error:", error);
+    },
+  });
+
   return (
     <motion.div
     ref={ref}
@@ -62,6 +93,7 @@ const Login = () => {
 
    <AnimatePresence initial={true}>
    <motion.div 
+   onClick={signIn}
    initial={{ y: 2000 }}
    animate={{ y: 0 }}
    exit={{  y: 2000 }}
@@ -81,7 +113,7 @@ const Login = () => {
       duration: 1
     }}
     className="mt-10 bg-white rounded-xl py-3 px-8 text-center font-semibold text-[20px] flex items-center gap-4 cursor-pointer">
-      <FaGoogle/>
+      <FaGoogle />
       <p>Sign in with Google</p>
     </motion.div>
    </AnimatePresence>
